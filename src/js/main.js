@@ -1,11 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
+import TodoContainer from './todo/TodoContainer';
 
 const Hello = () => {
     return (
-        <div>
-            Hello from react
-        </div>
+        <TodoContainer/>
     );
 };
 
