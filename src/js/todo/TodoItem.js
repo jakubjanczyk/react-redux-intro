@@ -1,5 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux';
+import {removeTodo} from '../actions';
 
 const TodoItem = ({id, text, onRemove}) => {
     return (
@@ -18,4 +20,8 @@ TodoItem.defaultProps = {
     }
 };
 
-export default TodoItem
+const mapDispatchToProps = {
+    onRemove: removeTodo
+};
+
+export default connect(null, mapDispatchToProps)(TodoItem)

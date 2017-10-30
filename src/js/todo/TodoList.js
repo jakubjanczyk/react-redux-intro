@@ -1,11 +1,12 @@
 import * as React from 'react';
 import TodoItem from './TodoItem';
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux';
 
-const TodoList = ({items, onRemove}) => {
+const TodoList = ({items}) => {
     return (
         <ul>
-            {items.map(item => <TodoItem key={item.id} id={item.id} text={item.text} onRemove={onRemove}/>)}
+            {items.map(item => <TodoItem key={item.id} id={item.id} text={item.text} />)}
         </ul>
     )
 };
@@ -19,4 +20,8 @@ TodoList.propTypes = {
     ).isRequired
 };
 
-export default TodoList
+const mapStateToProps = (state) => ({
+    items : state.todos
+});
+
+export default connect(mapStateToProps)(TodoList)
